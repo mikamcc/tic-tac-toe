@@ -1,0 +1,45 @@
+body{
+  background-color: lavender;
+}
+
+h1{
+  text-align: center;
+}
+
+ .boxes{
+  position: center;
+  margin: 0 auto;/*gives the same space to left to right*/
+  width: 630px; /* 3 boxes can fit into this width*/
+}
+
+
+.box {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    line-height: 200px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+/*This from Leila
+/* .table{
+
+  margin: auto;
+}
+td{
+  background-color: lavender;
+  width:200px;
+  height: 200px;
+}
+
+h1 {
+  text-align: center;
+} */
