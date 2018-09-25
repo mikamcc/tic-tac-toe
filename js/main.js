@@ -38,6 +38,7 @@ const checkForWin = function(){
        $('#3').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#6').text()=== $('#7').text() &&
@@ -46,6 +47,7 @@ const checkForWin = function(){
        $('#6').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#0').text()=== $('#4').text() &&
@@ -54,6 +56,7 @@ const checkForWin = function(){
        $('#0').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#2').text()=== $('#4').text() &&
@@ -62,6 +65,7 @@ const checkForWin = function(){
        $('#2').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#2').text()=== $('#4').text() &&
@@ -70,6 +74,7 @@ const checkForWin = function(){
        $('#2').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#0').text()=== $('#3').text() &&
@@ -78,6 +83,7 @@ const checkForWin = function(){
        $('#0').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#1').text()=== $('#4').text() &&
@@ -86,6 +92,7 @@ const checkForWin = function(){
        $('#1').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+         $('#messageBox').text ('You won!');
        }
 
      else if ($('#2').text()=== $('#5').text() &&
@@ -94,6 +101,7 @@ const checkForWin = function(){
        $('#2').text().length > 0) { //this will check whether boxes have some text inside or not
          console.log('You win!');
          gameStillInProgress = false;
+           $('#messageBox').text ('You won!');
        }
 };
 
