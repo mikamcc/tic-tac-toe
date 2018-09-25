@@ -14,12 +14,14 @@ h1{
 
 
 .box {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
-    line-height: 200px;
-    overflow: hidden;
+  font-size: 60pt;
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  line-height: 200px;
+  overflow: hidden;
 }
 
 
