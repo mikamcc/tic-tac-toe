@@ -8,31 +8,42 @@
   <body>
     <h1 id="messageBox">Tic Tac Toe</h1>
 
-    <div class="boxes"> <!--this wraps all 9 boxes -->
-    <!--these are all indivisual boxes -->
-      <div class="box" id="0"></div>
+    <div id="container">
 
-      <div class="box" id="1"></div>
+      <div class="boxes"> <!--this wraps all 9 boxes -->
+      <!--these are all indivisual boxes -->
+      <div class="row">
+        <div class="box" id="0"></div>
+        <div class="box" id="1"></div>
+        <div class="box" id="2"></div>
+      </div>
+      <div class="row">
+        <div class="box" id="3"></div>
+        <div class="box" id="4"></div>
+        <div class="box" id="5"></div>
+      </div>
+      <div class="row">
+        <div class="box" id="6"></div>
+        <div class="box" id="7"></div>
+        <div class="box" id="8"></div>
+      </div>
 
-      <div class="box" id="2"></div>
 
-      <div class="box" id="3"></div>
+      </div><!-- #boxes -->
 
-      <div class="box" id="4"></div>
+      <div id="resetButton">
+        <span>Score</span>
+        <br>
+        <span class="score" id="x">X : 0 </span></br>
+        <span class="score" id="o">O : 0 </span></br>
+        <button id="reset">Reset Game</button>
+      </div>
 
-      <div class="box" id="5"></div>
+  </div><!-- #container -->
 
-      <div class="box" id="6"></div>
-
-      <div class="box" id="7"></div>
-
-      <div class="box" id="8"></div>
-    </div>
-
-
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
 </body>
-  <script src="js/jquery.js"></script>
-  <script src="js/main.js"></script>
 </html>
 
 
