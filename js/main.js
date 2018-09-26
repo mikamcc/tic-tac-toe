@@ -41,7 +41,6 @@ const checkForWin = function(){
           oWin++;
           $('#oScore').text(oWin);//print score on O:
         }
-
       }
 };//checkForWin function
 
@@ -93,4 +92,13 @@ $('#reset').on('click', function () {
   moveCount = 0;//reset moveCount
   gameStillInProgress = true; //reseting
   $('#messageBox').text('Tic Tac Toe');//reset the heading
+});
+
+$('#startAgain').on('click', function () {
+  $('.box').empty(); //clear all the text inside the contents
+  $('.box').removeClass('O X'); // clear the colour classes
+  moveCount = 0;//reset moveCount
+  gameStillInProgress = true; //reseting
+  $('#messageBox').text('Tic Tac Toe');//reset the heading
+  $('.score').empty().text(0);
 });

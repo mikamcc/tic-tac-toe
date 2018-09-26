@@ -11,6 +11,8 @@ h1{
   font-size: 60px;
   background-color: pink;
   padding: 10px;
+  color: white;
+  margin-top: 0;
 }
 
 .row{
@@ -62,11 +64,21 @@ h1{
     margin: 0;
 }
 
-#reset{background-color: #4CAF50;
+#reset{background-color: pink;
   width: 15vw;
   height: 7vw;
   font-size: 25px;
   margin-top: 10px;
+  color: white;
+}
+
+#startAgain {background-color: pink;
+  width: 15vw;
+  height: 7vw;
+  font-size: 25px;
+  margin-top: 10px;
+  color: white;
+
 }
 
 /* .score{
