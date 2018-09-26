@@ -4,6 +4,8 @@ console.log('loaded');
 let gameStillInProgress = true;
 let currentTurn = 'X'; // let secondTurn = 'O'; I don't need this as it can flip it.
 let moveCount = 0;
+let xWin = 0;
+let oWin = 0;
 
 const checkForWin = function(){
 
@@ -26,11 +28,21 @@ const checkForWin = function(){
       (s2 === s4 && s2 === s6 && s2.length > 0) ||
       (s0 === s3 && s0 === s6 && s0.length > 0) ||
       (s1 === s4 && s1 === s7 && s1.length > 0) ||
-      (s2 === s5 && s2 === s8 && s2.length > 0) 
+      (s2 === s5 && s2 === s8 && s2.length > 0)
     ){
         console.log('You win!');
-        $('#messageBox').text('You win!');
+        $('#messageBox').text(`You win, ${ currentTurn }!`);
         gameStillInProgress = false;// game is over. user can't click anymore.
+
+        if (currentTurn === 'X') {
+          xWin++;
+          $('#xScore').text(xWin);
+        } else {
+          oWin++;
+          $('#oScore').text(oWin);
+        }
+
+
       }
 };//checkForWin function
 
@@ -54,13 +66,21 @@ $('.box').on('click', function (){
   // using whatever is in the 'currentTurn' variable
   $(this).text( currentTurn );//this prints X
 
+  // use currentTurn ('X' or 'O') to set the class for the
+  // clicked element, to give it a colour
+  $(this).addClass( currentTurn );
+
+  checkForWin();
+
+
+
   if (currentTurn === 'X'){ // this will flip X & O
     currentTurn = 'O';
   } else {
     currentTurn = 'X';
   }
 
-  checkForWin();
+  
 
   // The game is a draw if we get to this point and:
   // 1. gameStillInProgress is still true
@@ -73,3 +93,16 @@ $('.box').on('click', function (){
   }
 
 }); //on click function
+
+
+
+
+
+$('#reset').on('click', function () {
+  // do everything we need to do to reset the state of the game
+  $('.box').empty();
+  moveCount = 0;
+  gameStillInProgress = true;
+  $('#messageBox').text('Tic Tac Toe');
+
+});

@@ -26,7 +26,6 @@ h1{
   /* 3 boxes can fit into this width*/
 }
 
-
 .box {
   color: white;
   font-size: 60pt;
@@ -50,11 +49,11 @@ h1{
 
 #resetButton{
     color: white;
-    font-size: 22pt;
+    font-size: 40pt;
     font-family: 'Nunito', sans-serif;
     text-align: center;
     position: absolute;
-    right: 5px;
+    right: 30px;
     top: 0px;
     width: 15vw;
     height: 12vw;
@@ -64,8 +63,8 @@ h1{
 }
 
 #reset{background-color: #4CAF50;
-  width: 12vw;
-  height: 5vw;
+  width: 15vw;
+  height: 7vw;
   font-size: 25px;
   margin-top: 10px;
 }
@@ -74,15 +73,33 @@ h1{
   border: 2px solid white;
 } */
 
-#x{
+.X{
   color: blue;
-  font-size: 40px;
+  /* font-size: 40px; */
 }
 
-#o{
+.O{
   color: red;
-  font-size: 40px;
+  /* font-size: 40px; */
 }
+
+#score{
+  font-size: 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*This from Leila
 /* .table{
 
