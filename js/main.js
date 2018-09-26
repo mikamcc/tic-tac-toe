@@ -4,8 +4,8 @@ console.log('loaded');
 let gameStillInProgress = true;
 let currentTurn = 'X'; // let secondTurn = 'O'; I don't need this as it can flip it.
 let moveCount = 0;
-let xWin = 0;
-let oWin = 0;
+let xWin = 0;// store win of X
+let oWin = 0;// store win of O
 
 const checkForWin = function(){
 
@@ -31,17 +31,16 @@ const checkForWin = function(){
       (s2 === s5 && s2 === s8 && s2.length > 0)
     ){
         console.log('You win!');
-        $('#messageBox').text(`You win, ${ currentTurn }!`);
+        $('#messageBox').text(`You win, ${ currentTurn }!`); //prints currentTurn X or O
         gameStillInProgress = false;// game is over. user can't click anymore.
 
         if (currentTurn === 'X') {
-          xWin++;
-          $('#xScore').text(xWin);
+          xWin++; // add 1 to the xWin
+          $('#xScore').text(xWin);//print score on X:
         } else {
           oWin++;
-          $('#oScore').text(oWin);
+          $('#oScore').text(oWin);//print score on O:
         }
-
 
       }
 };//checkForWin function
@@ -55,16 +54,11 @@ $('.box').on('click', function (){
   }
 
   moveCount = moveCount+1; // moveCount++;  // moveCount += 1;
-  console.log(moveCount);
-
-  const id = $(this).attr('id');
-  // ^ gets us the ID of the DIV that was clicked
-  // ('this' contains the DIV that was clicked)
-  // console.log( id );
+  console.log(moveCount);//everytime clicked count it as one
 
   // set the text contents of the DIV that was clicked,
   // using whatever is in the 'currentTurn' variable
-  $(this).text( currentTurn );//this prints X
+  $(this).text( currentTurn );//this prints currentTurn X or O
 
   // use currentTurn ('X' or 'O') to set the class for the
   // clicked element, to give it a colour
@@ -72,7 +66,7 @@ $('.box').on('click', function (){
 
   checkForWin();
 
-
+  // playAIMove();
 
   if (currentTurn === 'X'){ // this will flip X & O
     currentTurn = 'O';
@@ -80,7 +74,6 @@ $('.box').on('click', function (){
     currentTurn = 'X';
   }
 
-  
 
   // The game is a draw if we get to this point and:
   // 1. gameStillInProgress is still true
@@ -91,18 +84,13 @@ $('.box').on('click', function (){
     // console.log('Draw!');
     $('#messageBox').text ('Draw!');
   }
-
 }); //on click function
-
-
-
-
 
 $('#reset').on('click', function () {
   // do everything we need to do to reset the state of the game
-  $('.box').empty();
-  moveCount = 0;
-  gameStillInProgress = true;
-  $('#messageBox').text('Tic Tac Toe');
-
+  $('.box').empty(); //clear all the text inside the contents
+  $('.box').removeClass('O X'); // clear the colour classes
+  moveCount = 0;//reset moveCount
+  gameStillInProgress = true; //reseting
+  $('#messageBox').text('Tic Tac Toe');//reset the heading
 });
