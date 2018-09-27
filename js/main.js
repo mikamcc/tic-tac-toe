@@ -6,32 +6,59 @@ let currentTurn = 'X'; // let secondTurn = 'O'; I don't need this as it can flip
 let moveCount = 0;
 let xWin = 0;// store win of X
 let oWin = 0;// store win of O
-let board = [
+let board = [ //empty array
   null, null, null,
   null, null, null,
   null, null, null,
 ];
 
-const aiCells = function(){
+const switchPlayer = function(){
+  if (currentTurn === 'X'){ // this will flip X & O
+    currentTurn = 'O';
+  } else {
+    currentTurn = 'X';
+  }
+};
+
+const getFreeCells = function(){ //
   let freeSquareIDs = [];
   for (let i = 0; i < board.length; i++) {
     if (board[i] === null){
-      freeSquareIDs.push(i);//1
+      freeSquareIDs.push(i);//
     }
   }
   // console.log(freeSquareIDs);
   return freeSquareIDs;//2
 
-}
+};
 
-const playAIMove = function (currentPlayer) {
+const getRandomElementFromArray = function( array ){
+  const randomFloat = Math.random() * array.length;
+  const randomFreeIndex = Math.floor( randomFloat );//3
+
+  const randomElement = array[ randomFreeIndex ];
+
+  return randomElement;
+};
+
+const playAIMove = function(currentPlayer){
+
   console.log('playAIMove()');
-  let availableCells = aiCells();//5
-  // console.log(availableCells);
-  let aiId = Math.floor(Math.random() * availableCells.length);//3
-  // console.log(aiId);
-  board[aiId] = currentPlayer;//4
-  console.log(board);
+
+  let availableCells = getFreeCells(); //5
+  console.log('availableCells', availableCells);
+
+  const randomID = getRandomElementFromArray( availableCells );
+
+  $(`#${randomID}`)
+     .text( currentPlayer )
+     .addClass( currentPlayer );
+
+  board[ randomID ] = currentTurn;
+
+  // console.log(randomCellID);
+  // board[ randomCellID ] = currentPlayer;//4
+  // console.log(board);
   // find the free squares which the AI player can choose from for its move
   // [
   //   'X',  null, null,
@@ -40,8 +67,6 @@ const playAIMove = function (currentPlayer) {
   // ];
 
   // => output should be [1,2,3,5,6,7]
-
-
 };
 
 const checkForWin = function(){
@@ -107,17 +132,15 @@ $('.box').on('click', function (){
   // use currentTurn ('X' or 'O') to set the class for the
   // clicked element, to give it a colour
   $(this).addClass( currentTurn );
-
   checkForWin();
+  switchPlayer();
 
-
-  if (currentTurn === 'X'){ // this will flip X & O
-    currentTurn = 'O';
-  } else {
-    currentTurn = 'X';
+  if( gameStillInProgress ){
+    playAIMove(currentTurn);
+    checkForWin();
+    switchPlayer();
   }
 
-  playAIMove(currentTurn);
 
   // The game is a draw if we get to this point and:
   // 1. gameStillInProgress is still true
@@ -137,6 +160,11 @@ $('#reset').on('click', function () {
   moveCount = 0;//reset moveCount
   gameStillInProgress = true; //reseting
   $('#messageBox').text('Tic Tac Toe');//reset the heading
+  board = [
+    null, null, null,
+    null, null, null,
+    null, null, null,
+  ];
 });
 
 $('#clearScore').on('click', function () {
