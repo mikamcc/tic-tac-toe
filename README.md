@@ -1,7 +1,7 @@
 
 # Project 0: Tic Tac Toe
 
-## [a link to the live playable game on GitHub](https://mikamcc.github.io/tic-tac-toe/)
+### [a link to the live playable game on GitHub](https://mikamcc.github.io/tic-tac-toe/)
 ## a general description of the project
   **Tic Tac Toe**<br>
   The classic game that everyone knows has been recreated on the web with a mixture of jQuery, Javascript, HTML and CSS. Play against the   AI!
