@@ -2,17 +2,17 @@
 # Project 0: Tic Tac Toe
 
 ### [a link to the live playable game on GitHub](https://mikamcc.github.io/tic-tac-toe/)
-## a general description of the project
+## General Description of the project
   **Tic Tac Toe**<br>
   The classic game that everyone knows has been recreated on the web with a mixture of jQuery, Javascript, HTML and CSS. Play against the   AI!
-## screenshot of Tic Tac Toe
+## Screenshot of Tic Tac Toe
 
-## description of main features
+## Description of Main Features
   Click in any box to start the game against the AI. The score is collected automatically. You can reset the game and clear the score to     hide your shame.
-## list of any known bugs
+## List of Any Known Bugs
   The AI is fast…perhaps too fast and needs a pause or delay after an event (left click from human player). And the AI is also dumb…         perhaps too dumb. But that’s great news for you—our star player!
 
-## tech used 
+## Tech Used 
   HTML, CSS, Javascript and jQuery. 
   
 ## Reflection
