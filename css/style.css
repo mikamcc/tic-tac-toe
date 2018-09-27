@@ -64,7 +64,7 @@ h1{
     margin: 0;
 }
 
-#reset{background-color: pink;
+#reset{background-color: blue;
   width: 15vw;
   height: 7vw;
   font-size: 25px;
@@ -72,12 +72,15 @@ h1{
   color: white;
 }
 
-#startAgain {background-color: pink;
+#clearScore
+ {background-color: red;
+   right: ;
   width: 15vw;
   height: 7vw;
   font-size: 25px;
-  margin-top: 10px;
+  margin-top: 20px;
   color: white;
+
 
 }
 
