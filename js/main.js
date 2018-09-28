@@ -117,7 +117,7 @@ $('.box').on('click', function (){
   const id =  parseInt( this.id );
   // use the id as an index into our board array,
   // to save the current player's symbol (X or O) into the rigt position
-  board[ id ] = currentTurn;//
+  board[ id ] = currentTurn;
 
   // use currentTurn ('X' or 'O') to set the class for the clicked element, to give it a colour
   $(this).addClass( currentTurn );//set the color of pick
@@ -139,25 +139,26 @@ $('.box').on('click', function (){
   }
 }); //on click function
 
-$('#reset').on('click', function () { //reset the game button
+const resetGameState = function() {
   // do everything we need to do to reset the state of the game
   $('.box').empty(); //clear all the text inside the contents
   $('.box').removeClass('O X'); // clear the colour classes
   moveCount = 0;//reset moveCount
   gameStillInProgress = true; //reseting
+  currentTurn = 'X';
   $('#messageBox').text('Tic Tac Toe');//reset the heading
   board = [
     null, null, null,
     null, null, null,
     null, null, null,
   ];
-});
+};
+
+$('#reset').on('click', resetGameState);
 
 $('#clearScore').on('click', function () { //clear score button
-  $('.box').empty(); //clear all the text inside the contents
-  $('.box').removeClass('O X'); // clear the colour classes
-  moveCount = 0;//reset moveCount
-  gameStillInProgress = true; //reseting
-  $('#messageBox').text('Tic Tac Toe');//reset the heading
+  resetGameState();
   $('.score').text(0);//reset the score display to 0
+  xWin = 0;
+  oWin = 0;
 });
