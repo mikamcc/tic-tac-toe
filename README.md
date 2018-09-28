@@ -16,4 +16,4 @@
   HTML, CSS, Javascript and jQuery.
 
 ## Reflection
-  It was nice to have the opportunity to apply what was taught in the first two weeks of the WDI course. 
+  It was nice to have the opportunity to apply what was taught in the first two weeks of the WDI course.
