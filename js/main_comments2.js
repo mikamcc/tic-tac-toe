@@ -1,10 +1,12 @@
 
+console.log('loaded');
+
 let gameStillInProgress = true;
 let currentTurn = 'X'; // let secondTurn = 'O'; I don't need this as it can flip it.
 let moveCount = 0;
 let xWin = 0;// store win of X
 let oWin = 0;// store win of O
-let board = [
+let board = [ //empty array
   null, null, null,
   null, null, null,
   null, null, null,
@@ -30,16 +32,20 @@ const getFreeCells = function(){ //extract id for empty box and store the id to 
 };
 
 const getRandomElementFromArray = function( array ){ //get random element from array
-  const randomFloat = Math.random() * array.length;// gives you random number from 0 - array.length
+
+  const randomFloat = Math.random() * array.length;// gives you random number from 0 -array.length
   const randomFreeIndex = Math.floor( randomFloat );//get rid of decimal
+
   const randomElement = array[ randomFreeIndex ]; //getting value of an array with index = randomFreeIndex. this value stores in randomElement
+
   return randomElement;
 };
 
 const playAIMove = function(currentPlayer){ //
+  // console.log('playAIMove()');
 
   let availableCells = getFreeCells();//get availeble cells using getFreeCells function
-  // console.log('availableCells', availableCells);
+  //console.log('availableCells', availableCells);
   const randomID = getRandomElementFromArray( availableCells );//pull one of the availabel elements out of an array at random
 
   $(`#${randomID}`)   // select the DIV with the id of the randomID, e.g. '#5'
@@ -84,7 +90,7 @@ const checkForWin = function(){
     (s1 === s4 && s1 === s7 && s1.length > 0) ||
     (s2 === s5 && s2 === s8 && s2.length > 0)
   ){
-    //console.log('You win!');
+    console.log('You win!');
     $('#messageBox').text(`You win, ${ currentTurn } !`); //prints currentTurn X or O
     gameStillInProgress = false;// game is over. user can't click anymore.
 
@@ -99,16 +105,18 @@ const checkForWin = function(){
 };//checkForWin function
 
 $('.box').on('click', function (){
+
   const contents = $(this).text();
   if( !gameStillInProgress ||  contents.length > 0 ){
     // return early from the function to stop the click from being processed
     return;// if if statements are true, won't run any codes below
   }
 
-  moveCount = moveCount+1; // moveCount++;  // moveCount += 1;//everytime clicked count it as one
+  moveCount = moveCount+1; // moveCount++;  // moveCount += 1;
+  // console.log(moveCount);//everytime clicked count it as one
 
 
-//these are all human move
+//these arr all human move
   // set the text contents of the DIV that was clicked,
   // using whatever is in the 'currentTurn' variable
   $(this).text( currentTurn );//this prints currentTurn X or O
@@ -116,10 +124,13 @@ $('.box').on('click', function (){
   // get the id of the box that was clicked (convert to integer)
   const id =  parseInt( this.id );
   // use the id as an index into our board array,
-  // to save the current player's symbol (X or O) into the rigt position
+  // to save the current player's symbol (X or O) into
+  // the rigt position
   board[ id ] = currentTurn;//
+  // console.log(board);
 
-  // use currentTurn ('X' or 'O') to set the class for the clicked element, to give it a colour
+  // use currentTurn ('X' or 'O') to set the class for the
+  // clicked element, to give it a colour
   $(this).addClass( currentTurn );//set the color of pick
   checkForWin();
   switchPlayer();
@@ -135,11 +146,12 @@ $('.box').on('click', function (){
 
   // Check for draw:
   if( gameStillInProgress && moveCount === 9){
+    // console.log('Draw!');
     $('#messageBox').text ('Draw!');
   }
 }); //on click function
 
-$('#reset').on('click', function () { //reset the game button
+$('#reset').on('click', function () {
   // do everything we need to do to reset the state of the game
   $('.box').empty(); //clear all the text inside the contents
   $('.box').removeClass('O X'); // clear the colour classes
@@ -153,11 +165,11 @@ $('#reset').on('click', function () { //reset the game button
   ];
 });
 
-$('#clearScore').on('click', function () { //clear score button
+$('#clearScore').on('click', function () {
   $('.box').empty(); //clear all the text inside the contents
   $('.box').removeClass('O X'); // clear the colour classes
   moveCount = 0;//reset moveCount
   gameStillInProgress = true; //reseting
   $('#messageBox').text('Tic Tac Toe');//reset the heading
-  $('.score').text(0);//reset the score display to 0
+  $('.score').text(0);//reset to 0
 });
